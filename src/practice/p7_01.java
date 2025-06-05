@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,8 +29,16 @@ banana: 3
 grape: 2  
 kiwi: 1
  */
-public class p7 {
 
+public class p7_01 {
+
+	static class LengthComparator implements Comparator<Map.Entry<String, Integer>>{
+		@Override
+		public int compare(Map.Entry<String, Integer> a, Map.Entry<String, Integer> b) {
+			return Integer.compare(b.getKey().length(), a.getKey().length()); // 길이 내림차순
+		}
+	}
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String[] str = br.readLine().split(" ");
@@ -40,18 +49,10 @@ public class p7 {
 		}
 		
 		List<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String,Integer>>(map.entrySet());
-		list.sort((a, b) -> {
-			//값 비교(내림차순)
-			int valueCompare = b.getValue().compareTo(a.getValue()); //값이 큰 게 먼저
-			//같은 값이다!
-			if(valueCompare == 0) {
-				//키 비교(오름차순)
-				return a.getKey().compareTo(b.getKey());
-			}
-			//값이 다르면 값 기준으로 정렬하겠다~
-			return valueCompare;
-		});
 		
+		LengthComparator comp = new LengthComparator();
+		
+		list.sort(comp);
 		
 		for(Map.Entry<String, Integer> entry : list) {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
