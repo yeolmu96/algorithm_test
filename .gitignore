@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Java build outputs (Eclipse/IDE)
+bin/
+
+# Gradle / Maven (미래 대비)
+build/
+target/
+.gradle/
