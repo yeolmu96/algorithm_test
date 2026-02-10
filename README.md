@@ -9,4 +9,5 @@
   1) 레포 루트에 `.gitignore` 생성 (Eclipse/IntelliJ 설정 + 빌드 산출물 무시)
   2) 기존에 Git이 추적하던 Eclipse 설정 및 `bin/` 산출물은 `git rm --cached`로 추적 해제
   3) 커밋 & 푸시 완료 (`working tree clean` 확인)
-  > Note: `bin/`, `.settings/`, `.idea/` 등은 로컬에서 생성될 수 있지만 Git에는 포함되지 않습니다.
+ 
+> Note: `bin/`, `.settings/`, `.idea/` 등은 로컬에서 생성될 수 있지만 Git에는 포함되지 않습니다.
